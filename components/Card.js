@@ -5,6 +5,7 @@ import {
 } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import DropCard from "./DropCard";
+import Image from "next/image";
 
 const numberMapping = {
   1: { word: "PROCESSING", color: "bg-[#FFF0B3]", text: "text-[#5B4C0D]" },
@@ -23,9 +24,11 @@ function Card({ no }) {
   return (
     <>
       <div className="grid grid-rows-2 grid-cols-[0.25fr_1fr_1fr] p-2 py-4 md:p-6 md:grid-cols-[0.25fr_1fr_1fr_1fr_1fr_0.15fr] md:grid-rows-1">
-        <img
+        <Image
           src="https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f1ec-1f1e7.png"
           alt="country-flag"
+          height={21}
+          width={20}
           className="h-5 col-span-1 row-span-1"
         />
         <div className="col-span-1 row-span-1">
