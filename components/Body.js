@@ -14,17 +14,18 @@ function Body() {
             <Search />
           </div>
         </div>
-        <div className="bg-white border-2 rounded-md">
+        <div className="bg-white border-2 md:mt-5 rounded-md">
           <div className="w-full h-14 flex items-center justify-start p-4 border-b-2">
             <h2 className="text-lg text-gray-600">
               Submitted applications (5)
             </h2>
           </div>
           <div>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card no={1} />
+            <Card no={2} />
+            <Card no={3} />
+            <Card no={4} />
+            <Card no={5} />
           </div>
         </div>
       </div>

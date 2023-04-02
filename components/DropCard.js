@@ -14,7 +14,15 @@ import CalendarFilledIcon from "@atlaskit/icon/glyph/calendar-filled";
 import OfficeBuildingFilledIcon from "@atlaskit/icon/glyph/office-building-filled";
 import QuestionCircleIcon from "@atlaskit/icon/glyph/question-circle";
 
-function DropCard() {
+const numberMapping = {
+  1: { word: "PROCESSING", color: "bg-[#FFF0B3]", text: "text-[#5B4C0D]" },
+  2: { word: "PROCESSED", color: "bg-[#FFF0B3]", text: "text-[#5B4C0D]" },
+  3: { word: "AT EMBASSY/VFS", color: "bg-[#EAE6FF]", text: "text-[#403294]" },
+  4: { word: "APPROVED", color: "bg-[#E3FCEF]", text: "text-[#006644]" },
+  5: { word: "REJECTED", color: "bg-[#FFEBE6]", text: "text-[#BF2600]" },
+};
+
+function DropCard({ no }) {
   return (
     <div className="bg-card-gray">
       <div className="border-b-2 grid grid-cols-[0.25fr_1fr_1fr] grid-rows-2 md:grid-cols-[0.25fr_1.2fr_1.2fr_1fr_1fr] md:grid-rows-1 py-4 md:p-6 gap-3">
@@ -126,8 +134,10 @@ function DropCard() {
           <h3>27 yrs</h3>
           <h3 className="hidden md:inline-flex">amitpatel@gmail.com</h3>
           <div className="w-fit flex justify-center items-center">
-            <h2 className="text-gray-600 font-bold rounded-sm text-[13px] bg-yellow-200 px-1 font-sans">
-              PROCESSING
+            <h2
+              className={`${numberMapping[no].text} font-bold rounded-sm text-[13px] ${numberMapping[no].color} px-1 font-sans`}
+            >
+              {numberMapping[no].word}
             </h2>
           </div>
           <h3 className="hidden md:inline-flex">8800726382</h3>
@@ -138,8 +148,10 @@ function DropCard() {
           <h3>27 yrs</h3>
           <h3 className="hidden md:inline-flex">amitpatel@gmail.com</h3>
           <div className="w-fit flex justify-center items-center">
-            <h2 className="text-gray-600 font-bold rounded-sm text-[13px] bg-yellow-200 px-1 font-sans">
-              PROCESSING
+            <h2
+              className={`${numberMapping[no].text} font-bold rounded-sm text-[13px] ${numberMapping[no].color} px-1 font-sans`}
+            >
+              {numberMapping[no].word}
             </h2>
           </div>
           <h3 className="hidden md:inline-flex">8800726382</h3>

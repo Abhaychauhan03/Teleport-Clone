@@ -6,11 +6,20 @@ import {
 import React, { useState } from "react";
 import DropCard from "./DropCard";
 
-function Card() {
+const numberMapping = {
+  1: { word: "PROCESSING", color: "bg-[#FFF0B3]", text: "text-[#5B4C0D]" },
+  2: { word: "PROCESSED", color: "bg-[#FFF0B3]", text: "text-[#5B4C0D]" },
+  3: { word: "AT EMBASSY/VFS", color: "bg-[#EAE6FF]", text: "text-[#403294]" },
+  4: { word: "APPROVED", color: "bg-[#E3FCEF]", text: "text-[#006644]" },
+  5: { word: "REJECTED", color: "bg-[#FFEBE6]", text: "text-[#BF2600]" },
+};
+
+function Card({ no }) {
   const [clickDetails, setClickDetails] = useState(false);
   const handleDetailsClick = () => {
     setClickDetails(!clickDetails);
   };
+
   return (
     <>
       <div className="grid grid-rows-2 grid-cols-[0.25fr_1fr_1fr] p-2 py-4 md:p-6 md:grid-cols-[0.25fr_1fr_1fr_1fr_1fr_0.15fr] md:grid-rows-1">
@@ -43,8 +52,10 @@ function Card() {
         <div className="col-span-1 md:row-span-1 col-start-2 md:col-start-auto self-center md:self-auto">
           <div className=" flex flex-col justify-center">
             <div className="w-fit mb-1 flex">
-              <h2 className="text-gray-600 font-bold rounded-sm text-[13px] bg-yellow-200 px-1 font-sans">
-                PROCESSING
+              <h2
+                className={`${numberMapping[no].text} font-bold rounded-sm text-[13px] ${numberMapping[no].color} px-1 font-sans`}
+              >
+                {numberMapping[no].word}
               </h2>
             </div>
             <h3 className="text-sm text-gray-400 hidden md:inline-block">
@@ -70,7 +81,7 @@ function Card() {
         </div>
       </div>
 
-      {clickDetails && <DropCard />}
+      {clickDetails && <DropCard no={no} />}
     </>
   );
 }
